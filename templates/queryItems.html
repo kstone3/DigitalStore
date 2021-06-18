@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!--Prints out the items you might want to buy based on search query-->
+    {% for row in rows%}
+         <ul>
+             <li><b>Id:</b> {{row["id"]}} <b>Name:</b> {{row["name"]}} <b>Price:</b> ${{row["price"]}} <b>Seller:</b> {{row["seller"]}}, <b>Date Posted:</b> {{row["datePosted"]}}, <b>Number in stock:</b> {{row["numInStock"]}}</li>
+         </ul>
+    {% endfor %}
+    <!--Form to buy the item-->
+    <form action="/buyItem" method="post">
+        <input autocomplete="off" autofocus name="id" placeholder="Item Id" type="number">
+        <input type="submit" value="Buy">
+    </form>
+    <!--Sends you back to index.html.
+    For some reason, it identifies that file as /.
+    Might have something to do with @app.route() in application.py-->
+    Go <a href="/">back</a> to the home page
+{% endblock %}

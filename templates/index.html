@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Items in store</h2>
+    <ul>
+        <!--Prints out all of the items in the store-->
+        {% for row in rows%}
+            <li><b>Name:</b> {{row["name"]}} <b>Price:</b> ${{row["price"]}} <b>Seller:</b> {{row["seller"]}} <b>Date Posted:</b> {{row["datePosted"]}} <b>Number In Stock:</b> {{row["numInStock"]}}</li>
+        {% endfor %}
+    </ul>
+
+    <!--Action:Tells the form where to send the information in application.py.
+        Method:Not 100% sure what this does, but I think it is the way that the information gets sent to the method in application.py.
+        Autocomplete:Whether or not you want the browser to be able to autocomplete this information or not
+        Autofocus name:Kinda like the variable name for the the information in that box. Use in application.py to retrive information using request.form.get()
+        Placeholder:The name appearing in the box where you enter the data. It is used to tell you what data is supposed to be entered
+        Type:What data type the information entered into that box should be. Also used to specify how to send the data. For example type="submit" is a button.
+        Value:The name on the button or submit type-->
+
+    <!--Add item form-->
+    <form action="/addItem" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input autocomplete="off" autofocus name="price" placeholder="Price" type="number">
+        <input autocomplete="off" autofocus name="seller" placeholder="Seller" type="text">
+        <input autocomplete="off" autofocus name="numInStock" placeholder="Number In Stock" type="number">
+        <input type="submit" value="Add">
+    </form>
+
+    <!--Query item form-->
+    <form action="/queryItems" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input autocomplete="off" autofocus name="price" placeholder="Price" type="number">
+        <input autocomplete="off" autofocus name="seller" placeholder="Seller" type="text">
+        <input autocomplete="off" autofocus name="datePosted" placeholder="Date Posted" type="date">
+        <input type="submit" value="Search">
+    </form>
+
+    <!--Delete item form-->
+    <form action="/deleteItem" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input autocomplete="off" autofocus name="seller" placeholder="Seller" type="text">
+        <input autocomplete="off" autofocus name="datePosted" placeholder="Date Posted" type="date">
+        <input type="submit" value="Delete">
+    </form>
+
+    <!--Change num in stock form-->
+    <form action="/changeNumInStockQuery" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input autocomplete="off" autofocus name="seller" placeholder="Seller" type="text">
+        <input autocomplete="off" autofocus name="datePosted" placeholder="Date Posted" type="date">
+        <input type="submit" value="Change Stock">
+    </form>
+
+{% endblock %}

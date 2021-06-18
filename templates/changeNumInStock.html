@@ -1,0 +1,19 @@
+ {% extends "layout.html" %}
+<!--Ask mrs.perry about inputing id into the form-->
+{% block body %}
+        <!--Prints out the item you want to change the stock of-->
+        {% for row in rows%}
+            <h2>You want to change {{row["name"]}}, id: {{row["id"]}}, sold by {{row["seller"]}}, with {{row["numInStock"]}} items stock</h2>
+        {% endfor %}
+        <h2>to</h2>
+        <!--Form to change the number of items in stock-->
+        <form action="/changeNumInStock" method="post">
+        <input autocomplete="off" autofocus name="numInStockChange" placeholder = "Stock" type="number">
+        <input autocomplete="off" autofocus name="id" placeholder = "id" type="number">
+        <input type="submit" value="Change">
+        </form>
+        <!--Sends you back to index.html.
+        For some reason, it identifies that file as /.
+        Might have something to do with @app.route() in application.py-->
+        Go <a href="/">back</a> to the home page
+{% endblock %}

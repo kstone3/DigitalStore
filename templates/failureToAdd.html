@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!--Tells you that you forgot to add something to the add form
+    Due to Flask and Jinja, you don't need to <h> tags to print text-->
+    You must provide the name, price, number in stock and seller of your shopping item if you wish to add it.
+    <!--Sends you back to index.html.
+    For some reason, it identifies that file as /.
+    Might have something to do with @app.route() in application.py-->
+    Go <a href="/">back</a> to try again.
+{% endblock %}

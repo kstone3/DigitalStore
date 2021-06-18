@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!--Prints out the item you just added-->
+    {% for row in rows%}
+        <h3>Your item, {{row["name"]}}, is added for a price of ${{row["price"]}} with {{row["numInStock"]}} in stock</h3>
+    {% endfor %}
+    <!--Sends you back to index.html.
+    For some reason, it identifies that file as /.
+    Might have something to do with @app.route() in application.py-->
+     Go <a href="/">back</a> to the home page
+{% endblock %}

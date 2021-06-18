@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!--Tells you that you forgot to add something to the change num in stock form
+    Due to Flask and Jinja, you don't need to <h> tags to print text-->
+    You must provide the name, seller and date posted of your shopping item if you wish to its change the number in stock.
+    <!--Sends you back to index.html.
+    For some reason, it identifies that file as /.
+    Might have something to do with @app.route() in application.py-->
+    Go <a href="/">back</a> to try again.
+{% endblock %}

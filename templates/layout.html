@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<!--Sets up some Flask and Jinja stuff, I don't really know what it does, I wouldn't mess with it-->
+
+<html>
+    <!-- things in the "head" do not show up in the actual web page display -->
+    <head>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+        <!-- the title shows up in the tab of the page -->
+        <title>Digital Store</title>
+    </head>
+
+    <!-- The body is the section to put everything that you want to -->
+    <!-- display on the page -->
+    <body>
+        <!-- The {} signify Jinja code -- not to worry about for now -->
+        <!-- Flask knows to render output here because of next two lines -->
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

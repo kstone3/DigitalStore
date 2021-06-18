@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!--Tells you that there are no items in stock and can't buy.
+    Due to Flask and Jinja, you don't need to <h> tags to print text.
+    Also sends you back to either index.html or queryItems.html.
+    For some reason it identifies those files as / amd /queryItems
+    Might have something to do with @app.route() in application.py--->
+    There are none of these items in stock, so you can't buy it. Please either go back to the <a href="/">home page</a>
+{% endblock %}
